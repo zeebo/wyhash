@@ -37,9 +37,7 @@ Run on my `i7-6700K CPU @ 4.00GHz`
 |` Uint64n(small) ` |` 2.43 ns/op ` |
 |` Float64 `        |` 2.17 ns/op ` |
 
-# Documentation
-
-## Usage
+# Usage
 
 #### func  Float64
 
