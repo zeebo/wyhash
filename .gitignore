@@ -1,0 +1,4 @@
+*.out
+*.pprof
+./go-wyhash
+*.test
