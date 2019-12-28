@@ -6,6 +6,21 @@ import "math/bits"
 // The zero value is valid.
 type RNG uint64
 
+// Int returns a random positive int.
+// Not safe for concurrent callers.
+func (r *RNG) Int() int {
+	return int(uint(r.Uint64()) >> 1)
+}
+
+// Intn returns an int uniformly in [0, n).
+// Not safe for concurrent callers.
+func (r *RNG) Intn(n int) int {
+	if n <= 0 {
+		return 0
+	}
+	return int(r.Uint64n(uint64(n)))
+}
+
 // Uint64 returns a random uint64.
 // Not safe for concurrent callers.
 func (r *RNG) Uint64() uint64 {

@@ -8,6 +8,24 @@ var global struct {
 	RNG
 }
 
+// Int returns a random int.
+// Safe for concurrent callers.
+func Int() int {
+	global.Lock()
+	out := global.Int()
+	global.Unlock()
+	return out
+}
+
+// Intn returns a int uniformly in [0, n).
+// Safe for concurrent callers.
+func Intn(n int) int {
+	global.Lock()
+	out := global.Intn(n)
+	global.Unlock()
+	return out
+}
+
 // Uint64 returns a random uint64.
 // Safe for concurrent callers.
 func Uint64() uint64 {

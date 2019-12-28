@@ -16,8 +16,23 @@ func TestRng(t *testing.T) {
 }
 
 func BenchmarkRNG(b *testing.B) {
+	var blackholeInt int
 	var blackholeUint64 uint64
 	var blackholeFloat64 float64
+
+	b.Run("Int", func(b *testing.B) {
+		rng := RNG(2345)
+		for i := 0; i < b.N; i++ {
+			blackholeInt += rng.Int()
+		}
+	})
+
+	b.Run("Intn", func(b *testing.B) {
+		rng := RNG(2345)
+		for i := 0; i < b.N; i++ {
+			blackholeInt += rng.Intn(1000)
+		}
+	})
 
 	b.Run("Uint64", func(b *testing.B) {
 		rng := RNG(2345)

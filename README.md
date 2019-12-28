@@ -61,6 +61,20 @@ func HashString(data string, seed uint64) uint64
 HashString returns a 64bit digest of the data with different ones for every
 seed.
 
+#### func  Int
+
+```go
+func Int() int
+```
+Int returns a random int. Safe for concurrent callers.
+
+#### func  Intn
+
+```go
+func Intn(n int) int
+```
+Intn returns a int uniformly in [0, n). Safe for concurrent callers.
+
 #### func  Uint64
 
 ```go
@@ -89,6 +103,20 @@ RNG is a random number generator. The zero value is valid.
 func (r *RNG) Float64() (v float64)
 ```
 Float64 returns a float64 uniformly in [0, 1). Not safe for concurrent callers.
+
+#### func (*RNG) Int
+
+```go
+func (r *RNG) Int() int
+```
+Int returns a random int. Not safe for concurrent callers.
+
+#### func (*RNG) Intn
+
+```go
+func (r *RNG) Intn(n int) int
+```
+Intn returns an int uniformly in [0, n). Not safe for concurrent callers.
 
 #### func (*RNG) Uint64
 
