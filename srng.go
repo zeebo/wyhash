@@ -10,7 +10,6 @@ import (
 type SRNG uint64
 
 // Int returns a random positive int.
-// Not safe for concurrent callers.
 func (r *SRNG) Int() int {
 	return int(uint(r.Uint64()) >> 1)
 }
